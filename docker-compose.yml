@@ -1,0 +1,22 @@
+version: "3"
+services:
+  mongo-service:
+    image: mongo
+    ports:
+      - "27017:27017"
+  config-manager:
+    image: maksutspahi/config-manager
+    depends_on:
+        - mongo-service
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+  config-client:
+    image: maksutspahi/config-client
+    depends_on:
+        - mongo-service
+    ports:
+      - "8082:8082"
+    expose:
+      - 8082
