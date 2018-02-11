@@ -10,12 +10,18 @@ Bu proje 3 farklı component'tan oluşmaktadır.
    
    3- config-client -> https://github.com/maksutspahi/config-client
         Config-reader kullanarak konfigurasyonların okunması.
+        Reader'i kullanacak olan proje application.properties dosyasından ayarları verebilir:
+                `configuration.reader.mongo.enabled:true` -> Açık veya kapalı olması
+                `configuration.reader.mongo.refreshTimerIntervalInMs:1000` -> Yenileme aralığı
+                `application.name:ty-client` -> Konfigurasyonun çekileceği uygulama ismi
+                `spring.data.mongodb.database` -> Mongo db database ismi
+                `spring.data.mongodb.uri` -> Mongo db bağlantı url'i.
         Java-8, Spring-boot, MongoDb, Maven, Docker, Lombok kullanıldı.
         
 
 _Nasıl çalıştırılır:_
        
-Bilgisayarda java-8, maven ve docker kurulu olması gerekiyor.
+Proje çok basit bir şekilde birkaç saniyede çalıştırılabilir. Bilgisayarda java-8, maven ve docker kurulu olması gerekiyor.
        
 1. config-reader projesi altından `mvn clean package` komutu ile local mvn repository'ye yüklenir.
 2. config-client projesi altından `./build.sh` çalıştırılıp jar dosyası oluşturulur ve docker'a yüklenir.
